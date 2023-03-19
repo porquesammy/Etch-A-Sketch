@@ -12,11 +12,17 @@
 }
 
 body {
+  display:grid;
+  justify-content: center;
+  align-content: center;
   background-color: var(--main-bg-color);
   width: 100vw;
   height: 100vh;
   color: var(--main-text-color);
-  padding: 0rem 2rem 0rem 2rem;
+}
+
+.wholeContainer{
+  max-width: 330px;
 }
 
 .h1 {

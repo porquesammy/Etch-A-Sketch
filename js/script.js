@@ -3,14 +3,22 @@ const gridContainer = document.querySelector(".container");
 const gridLineState = document.querySelector(
   '.switch.lines input[type="checkbox"]'
 );
+const rainbowState = document.querySelector(
+  '.switch.rainbow input[type="checkbox"]'
+);
 const slider = document.querySelector("#slider");
 const gridColorPicker = document.querySelector("#gridColorPicker");
 let sliderValue = document.querySelector("#rangeValue").innerText;
 const defaultGrid = Math.pow(16, 2);
 let selectedGrid = defaultGrid;
+const penColorPicker = document.querySelector("#penColorPicker");
+let currentPenColor = "#70DbFF";
+let mouseDown = false;
 
 gridColorPicker.onchange = gridBackgroundColor;
 gridLineState.onchange = gridLines;
+rainbowState.onchange = penColor;
+penColorPicker.onchange = penColor;
 
 //grid slider power of 2 for even grids
 slider.onchange = function () {
@@ -59,16 +67,11 @@ function gridLines() {
   }
 }
 
-// helper for rainbow
-function random(number) {
-  return Math.floor(Math.random() * (number + 1));
-}
-
 function gridBackgroundColor() {
-  let currentColor = gridColorPicker.value;
+  let currentGridColor = gridColorPicker.value;
   let allDivs = document.querySelectorAll(".container>*");
   allDivs.forEach((i) => {
-    i.style.backgroundColor = `${currentColor}`;
+    i.style.backgroundColor = `${currentGridColor}`;
   });
 }
 
@@ -88,19 +91,32 @@ function divEventListeners() {
   });
 }
 
-let mouseDown = false;
 function draw(e) {
+  penColor();
   if (e.type === "mousedown") {
     e.preventDefault();
     mouseDown = true;
-    e.toElement.style.backgroundColor = "red";
+    e.toElement.style.backgroundColor = currentPenColor;
   } else if (e.type === "mouseover" && mouseDown) {
-    e.toElement.style.backgroundColor = "red";
+    e.toElement.style.backgroundColor = currentPenColor;
   }
 }
 
 function stopDraw() {
   mouseDown = false;
+}
+
+function penColor() {
+  if (rainbowState.checked) {
+    currentPenColor = `rgb(${random(255)},${random(255)},${random(255)})`;
+  } else {
+    currentPenColor = penColorPicker.value;
+  }
+}
+
+// helper for rainbow
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
 }
 
 function erase(e) {
