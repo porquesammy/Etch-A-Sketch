@@ -21,76 +21,60 @@
 
   <body>
     <div class="wholeContainer">
-    <div class="h1">
-      <h1>Pixel Draw</h1>
-    </div>
-    <div class="container" id="container">
-      <!-- js div area -->
-    </div>
-    <div class="tools-container">
-      <div class="grid-options-container">
-        <h2>Grid</h2>
-
-        <div class="lines-and-background">
-          <div>
-            <p>Lines</p>
-            <label class="switch lines">
-              <input type="checkbox" checked />
-              <span class="mini-slider round"></span>
-            </label>
-          </div>
-          <div>
-            <p>Grid</p>
-            <input type="color" id="gridColorPicker" value="#292929" />
-          </div>
-        </div>
-        <output id="rangeValue">Size: 16</output>
-        <input
-          id="slider"
-          class="slider"
-          type="range"
-          min="4"
-          max="50"
-          value="16"
-          step="2"
-          oninput="rangeValue.innerText = 'Size: ' + this.value"
-        />
+      <div class="h1">
+        <h1>Pixel Draw</h1>
       </div>
+      <div class="container" id="container">
+        <!-- js div area -->
+      </div>
+      <div class="tools-container">
+        <div class="grid-options-container">
+          <h2>Grid</h2>
 
-      <div class="pen-options-container">
-        <h2>Pen</h2>
-
-        <p>Color Palette <button class="edit-palette">edit</button></p>
-        <div class="color-palette">
-          <div class="color-one"></div>
-          <div class="color-two"></div>
-          <div class="color-three"></div>
-          <div class="color-four"></div>
-          <div class="eraser">
-            <span class="material-symbols-outlined"> auto_fix </span>
+          <div class="lines-and-background">
+            <div>
+              <p>Lines</p>
+              <label class="switch lines">
+                <input type="checkbox" checked />
+                <span class="mini-slider round"></span>
+              </label>
+            </div>
+            <div>
+              <p>Grid</p>
+              <input type="color" id="gridColorPicker" value="#292929" />
+            </div>
           </div>
+          <output id="rangeValue">Size: 16</output>
+          <input
+            id="slider"
+            class="slider"
+            type="range"
+            min="4"
+            max="50"
+            value="16"
+            step="2"
+            oninput="rangeValue.innerText = 'Size: ' + this.value"
+          />
         </div>
 
-        <div class="rainbowDiv">
-          <div class="rainbowChild">
-            <p>Rainbow</p>
-            <label class="switch rainbow">
-              <input type="checkbox" />
-              <span class="mini-slider round"></span>
-            </label>
+        <div class="pen-options-container">
+          <h2>Pen</h2>
+          <div class="rainbowDiv">
+            <div class="rainbowChild">
+              <p>Rainbow</p>
+              <label class="switch rainbow">
+                <input type="checkbox" />
+                <span class="mini-slider round"></span>
+              </label>
+            </div>
+            <div class="rainbowChild">
+              <p>Color</p>
+              <input type="color" id="penColorPicker" value="#70DBFF" />
+            </div>
           </div>
-          <div class="rainbowChild">
-            <p>Color</p>
-            <input
-              type="color"
-              id="penColorPicker"
-              value="#70DBFF"
-            />
-          </div>
+          <button class="clear">Clear</button>
         </div>
-        <button class="clear">Clear</button>
       </div>
     </div>
-</div>
   </body>
 </html>
