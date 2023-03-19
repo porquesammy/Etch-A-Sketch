@@ -104,7 +104,7 @@ h2 {
 
 .lines-and-background {
   display: flex;
-  margin-top:-1.7rem;
+  margin-top: -1.7rem;
 }
 /* right side options container */
 .pen-options-container {
@@ -147,7 +147,6 @@ input[type="range"].slider {
   background-color: transparent;
   -webkit-appearance: none;
 }
-
 
 input[type="range"].slider:focus {
   outline: none;
